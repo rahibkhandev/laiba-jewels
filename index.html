@@ -158,7 +158,69 @@
                 <span>Subtotal</span>
                 <span id="cart-subtotal">Rs 0</span>
             </div>
-            <button class="btn-checkout" onclick="checkoutDemo()">Complete Mock Checkout</button>
+            <button class="btn-checkout" onclick="openCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeCheckoutModal()"><i data-lucide="x"></i></button>
+
+            <div id="checkout-form-panel" class="checkout-panel active">
+                <h2 class="checkout-title">Checkout</h2>
+                <div class="checkout-layout">
+                    <form onsubmit="return false;">
+                        <div class="form-group"><label>Full Name *</label><input type="text" id="ck-name" required placeholder="Your full name"></div>
+                        <div class="form-group"><label>Phone Number *</label><input type="tel" id="ck-phone" required placeholder="03XX-XXXXXXX"></div>
+                        <div class="form-group"><label>Delivery Address *</label><input type="text" id="ck-address" required placeholder="House #, Street, Area"></div>
+                        <div class="form-group"><label>City *</label><input type="text" id="ck-city" required placeholder="Lahore"></div>
+                        <div class="form-group"><label>Order Notes (optional)</label><textarea id="ck-notes" rows="2" placeholder="Any special instructions"></textarea></div>
+
+                        <label class="section-label">Payment Method</label>
+                        <div class="pay-options">
+                            <div class="pay-option selected" data-pay="jazzcash" onclick="selectPayment('jazzcash')">
+                                <i data-lucide="smartphone"></i>
+                                <div><b>JazzCash / EasyPaisa</b><span>Pay via mobile wallet, send screenshot on WhatsApp</span></div>
+                            </div>
+                            <div class="pay-option" data-pay="cod" onclick="selectPayment('cod')">
+                                <i data-lucide="banknote"></i>
+                                <div><b>Cash on Delivery</b><span>Pay when your order arrives</span></div>
+                            </div>
+                        </div>
+
+                        <div id="jazzcash-info" class="payment-info-box show">
+                            <p><b>Send payment to:</b></p>
+                            <div class="payment-number-row">
+                                <span id="payment-number">0300-1234567</span>
+                                <button type="button" onclick="copyPaymentNumber()">Copy</button>
+                            </div>
+                            <p class="payment-note">JazzCash or EasyPaisa — Account name: Jewels by Laiba.<br>After paying, tap "Place Order" below — we'll help you send your screenshot on WhatsApp for confirmation.</p>
+                        </div>
+
+                        <button type="button" class="btn-place-order" onclick="placeOrder()">Place Order — <span id="ck-total">Rs 0</span></button>
+                    </form>
+
+                    <div class="order-summary-box">
+                        <h4>Order Summary</h4>
+                        <div id="checkout-summary-items"></div>
+                        <div class="totals-row grand"><span>Total</span><span id="checkout-summary-total">Rs 0</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="checkout-confirm-panel" class="checkout-panel">
+                <div class="confirm-panel">
+                    <div class="confirm-icon"><i data-lucide="check"></i></div>
+                    <h2>Order Placed!</h2>
+                    <p id="confirm-message">Thank you for your order.</p>
+                    <div class="confirm-order-id" id="confirm-order-id">#JBL-000000</div>
+                    <div id="whatsapp-cta-wrap" style="display:none;">
+                        <button class="btn-checkout" onclick="sendWhatsAppScreenshot()"><i data-lucide="message-circle"></i> Send Payment Screenshot on WhatsApp</button>
+                    </div>
+                    <button class="btn-continue" onclick="closeCheckoutModal()">Continue Shopping</button>
+                </div>
+            </div>
         </div>
     </div>
 
