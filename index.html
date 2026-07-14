@@ -4,21 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jewels by Laiba | Premium Demo Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
     <style>
         :root {
-            --bg-primary: #FAF9F6;
-            --text-dark: #1A1A1A;
-            --accent: #D4AF37;
+            --bg-primary: #FBF6F1;
+            --bg-soft: #F3E9DF;
+            --text-dark: #2A211C;
+            --text-muted: #8A7C70;
+            --accent: #C9A567;
+            --accent-dark: #A6813F;
             --card-bg: #FFFFFF;
-            --border: #E5E5E5;
+            --border: #EAE0D3;
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: var(--sans);
         }
 
         body {
@@ -72,10 +79,10 @@
         }
 
         .logo-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .logo-sub {
@@ -126,15 +133,104 @@
 
         .hero-banner {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 4.5rem 1rem 3.5rem;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
         }
 
         .hero-banner h1 {
-            font-weight: 300;
-            letter-spacing: 4px;
-            margin-bottom: 0.5rem;
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 3rem;
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 1.1rem;
+        }
+
+        .hero-banner h1 em {
+            font-style: italic;
+            color: var(--accent-dark);
+            font-weight: 500;
+        }
+
+        .hero-banner .hero-sub {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 560px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.8rem;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--text-dark);
+            transition: all 0.2s;
+        }
+
+        .hero-btn.solid {
+            background: var(--text-dark);
+            color: #fff;
+        }
+
+        .hero-btn.solid:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+
+        .hero-btn.outline {
+            background: transparent;
+            color: var(--text-dark);
+        }
+
+        .hero-btn.outline:hover {
+            background: var(--text-dark);
+            color: #fff;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats div b {
+            display: block;
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            color: var(--text-dark);
+        }
+
+        .hero-stats div span {
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
         }
 
         /* Filters */
@@ -317,7 +413,7 @@
         .cart-footer {
             padding: 1.5rem;
             border-top: 1px solid var(--border);
-            background: #FAF9F6;
+            background: var(--bg-soft);
         }
 
         .cart-total-row {
@@ -359,6 +455,249 @@
         .backdrop.open {
             display: block;
         }
+
+        /* ===== Section headings shared style ===== */
+        .section-eyebrow {
+            display: block;
+            text-align: center;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 2rem;
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto 1rem;
+            line-height: 1.3;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--accent-dark);
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 2.6rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* ===== Collections showcase ===== */
+        .collections-section { margin-bottom: 4rem; }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.4rem;
+        }
+
+        .collection-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4/3.2;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(42,33,28,0.06);
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 45%, rgba(42,33,28,0.78));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.3rem;
+            color: #fff;
+        }
+
+        .collection-num {
+            font-family: var(--serif);
+            font-size: 0.78rem;
+            color: var(--accent);
+            margin-bottom: 4px;
+            letter-spacing: 0.08em;
+        }
+
+        .collection-name {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .collection-tag {
+            font-size: 0.75rem;
+            opacity: 0.85;
+        }
+
+        /* ===== Our Promise / features ===== */
+        .promise-section {
+            margin-bottom: 4rem;
+            padding: 3.5rem 2rem;
+            background: var(--bg-soft);
+            border-radius: 20px;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .promise-item { text-align: center; }
+
+        .promise-num {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--accent-dark);
+            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .promise-item h4 {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .promise-item p {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== Testimonials ===== */
+        .testimonials-section { margin-bottom: 4rem; }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.6rem;
+        }
+
+        .testi-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.8rem;
+        }
+
+        .testi-stars {
+            color: var(--accent-dark);
+            font-size: 0.9rem;
+            margin-bottom: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .testi-card p {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .testi-card span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--text-dark);
+            color: #cfc4b6;
+            margin-top: 2rem;
+            padding: 3.5rem 2rem 0;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
+            gap: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand {
+            font-family: var(--serif);
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-grid p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #b8ac9c;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.1rem;
+        }
+
+        .footer-col a, .footer-col button {
+            display: block;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 0.85rem;
+            color: #b8ac9c;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover, .footer-col button:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 0.76rem;
+            color: #8a8073;
+        }
+
+        @media (max-width: 900px) {
+            .collections-grid { grid-template-columns: repeat(2, 1fr); }
+            .promise-grid { grid-template-columns: repeat(2, 1fr); }
+            .testi-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-banner h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -370,7 +709,7 @@
         <div class="navbar">
             <div class="logo-area">
                 <span class="logo-title">Jewels by Laiba</span>
-                <span class="logo-sub">TikTok Store Concept</span>
+                <span class="logo-sub">Minimal. Elegant. Everyday Luxury.</span>
             </div>
             <div class="nav-actions">
                 <button class="btn-icon" onclick="shareStore()" title="Share Store Layout">
@@ -386,9 +725,25 @@
 
     <main>
         <section class="hero-banner">
-            <h1>Elegance Refined</h1>
-            <p style="color: #666; font-size: 0.95rem;">Curated high-fashion minimal jewelry direct from our feed.</p>
-            <p style="color: #999; font-size: 0.8rem; margin-top: 6px;">Showing highlights from each collection — select a category below to browse it in full.</p>
+            <span class="hero-eyebrow">Handpicked Jewelry for Soft-Glam Lovers</span>
+            <h1>Everyday <em>Luxury</em>,<br>worn your way.</h1>
+            <p class="hero-sub">Minimal. Elegant. Timeless. A curated collection of pendants, rings, bracelets and earrings — chosen piece by piece, in tarnish-free stainless steel, delivered across Pakistan.</p>
+            <div class="hero-ctas">
+                <a href="#collections" class="hero-btn solid">Explore Collections</a>
+                <a href="#grid" class="hero-btn outline">Shop All</a>
+            </div>
+            <div class="hero-stats">
+                <div><b id="stat-count">0+</b><span>Curated Pieces</span></div>
+                <div><b>5</b><span>Collections</span></div>
+                <div><b>100%</b><span>Tarnish-Free</span></div>
+            </div>
+        </section>
+
+        <section id="collections" class="collections-section">
+            <span class="section-eyebrow">The Collection</span>
+            <h2 class="section-title">Chosen for the <em>soft-glam</em> wardrobe.</h2>
+            <p class="section-desc">Every piece is selected by hand — for the ones who like their sparkle quiet, warm and effortless.</p>
+            <div id="collections-grid" class="collections-grid"></div>
         </section>
 
         <section class="filters">
@@ -401,7 +756,81 @@
         </section>
 
         <section id="grid" class="product-grid"></section>
+
+        <section class="promise-section">
+            <span class="section-eyebrow">Why Jewels by Laiba</span>
+            <h2 class="section-title">Small pieces, chosen with <em>care</em>.</h2>
+            <p class="section-desc">Everyday luxury should feel effortless, honest and within reach — that's the idea this little studio is built around.</p>
+            <div class="promise-grid">
+                <div class="promise-item">
+                    <div class="promise-num">i.</div>
+                    <h4>Handpicked, Always</h4>
+                    <p>Every piece is personally selected — nothing mass-listed, nothing you'll regret.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-num">ii.</div>
+                    <h4>Tarnish-Free Steel</h4>
+                    <p>316L stainless steel that keeps its shine — waterproof and hypoallergenic.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-num">iii.</div>
+                    <h4>Fast Shipping</h4>
+                    <p>Carefully packed and shipped quickly, right across Pakistan.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="promise-num">iv.</div>
+                    <h4>Simple Checkout</h4>
+                    <p>Add to bag, review your order and check out in a couple of taps.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <span class="section-eyebrow">Loved by Many</span>
+            <h2 class="section-title">Words from the <em>Jewels</em> family.</h2>
+            <p class="section-desc">A few of the messages that make this little studio worth it.</p>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p>"The pendant is even prettier in person. Packing was so cute, delivery was quick — obsessed."</p>
+                    <span>— Verified order</span>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p>"Was nervous ordering online but everything arrived exactly as pictured. Hasn't left my wrist since."</p>
+                    <span>— Repeat customer</span>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p>"Minimal, elegant, exactly my style. Ordered earrings for my sisters too. Highly recommend."</p>
+                    <span>— Verified order</span>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">Jewels by Laiba</div>
+                <p>Minimal. Elegant. Everyday Luxury. Handpicked, tarnish-free jewelry shipped across Pakistan.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <button onclick="goToCategory('Necklaces')">Necklaces</button>
+                <button onclick="goToCategory('Rings')">Rings</button>
+                <button onclick="goToCategory('Bracelets')">Bracelets</button>
+                <button onclick="goToCategory('Earrings')">Earrings</button>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <a href="#" onclick="return false;">Instagram</a>
+                <a href="#" onclick="return false;">TikTok</a>
+                <button onclick="toggleCart()">View Bag</button>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Jewels by Laiba. All rights reserved.</div>
+    </footer>
 
     <!-- Cart Layout -->
     <div id="cart-drawer" class="cart-drawer">
@@ -415,7 +844,7 @@
         <div class="cart-footer">
             <div class="cart-total-row">
                 <span>Subtotal</span>
-                <span id="cart-subtotal">$0.00</span>
+                <span id="cart-subtotal">Rs 0</span>
             </div>
             <button class="btn-checkout" onclick="checkoutDemo()">Complete Mock Checkout</button>
         </div>
@@ -565,9 +994,44 @@
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             readSharedCartState();
+            renderCollections();
+            document.getElementById('stat-count').textContent = products.length + '+';
             renderProducts('All');
             updateCartUI();
         });
+
+        function goToCategory(cat) {
+            const btns = document.querySelectorAll('.filter-btn');
+            let target = btns[0];
+            btns.forEach(b => { if (b.textContent.trim() === cat) target = b; });
+            filterCategory(cat, target);
+            document.getElementById('grid').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderCollections() {
+            const wrap = document.getElementById('collections-grid');
+            const cats = [...new Set(products.map(p => p.category))];
+            const taglines = {
+                'Necklaces': 'Delicate everyday pendants',
+                'Rings': 'Adjustable & statement bands',
+                'Bracelets': 'Handcuffs, bangles & chains',
+                'Earrings': 'Studs, hoops & danglers',
+                'Accessories': 'Sets & combo pieces'
+            };
+            wrap.innerHTML = cats.map((cat, i) => {
+                const rep = products.find(p => p.category === cat);
+                const num = String(i + 1).padStart(2, '0');
+                return `
+                    <div class="collection-card" onclick="goToCategory('${cat}')">
+                        <img src="${rep.image}" alt="${cat}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.style.background='var(--bg-soft)';">
+                        <div class="collection-overlay">
+                            <div class="collection-num">${num}</div>
+                            <div class="collection-name">${cat}</div>
+                            <div class="collection-tag">${taglines[cat] || 'Shop the edit'}</div>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
 
         function showToast(message) {
             const toast = document.getElementById('toast');
